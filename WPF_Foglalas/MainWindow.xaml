@@ -1,0 +1,101 @@
+﻿<Window x:Class="WPF_Foglalas.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPF_Foglalas"
+        mc:Ignorable="d"
+        Title="Mozijegy Foglalás" Height="800" Width="400"
+        ThemeMode="Dark" ResizeMode="NoResize">
+    <Grid Margin="16">
+        <StackPanel>
+            <TextBlock Text="🎥 Mozijegy Foglalás"
+                       Margin="0,48"
+                       FontFamily="Papyrus"
+                       FontSize="24"
+                       FontWeight="Bold"
+                       HorizontalAlignment="Center" />
+
+            <TextBlock Text="👤 Név" Margin="0,16,0,0" />
+            <TextBox x:Name="userName" />
+
+            <TextBlock Text="⌛ Életkor" Margin="0,16,0,0" />
+            <TextBox x:Name="userAge" />
+
+            <TextBlock Text="🎞️ Film" Margin="0,16,0,0" />
+            <ComboBox x:Name="movieChoice">
+                <ComboBoxItem Content="-" IsSelected="True" />
+                <ComboBoxItem Content="Backrooms: Hátsó szóbák" />
+                <ComboBoxItem Content="Öt Éjjel Freddy Pizzázójában" />
+                <ComboBoxItem Content="Star Wars I. rész – Baljós árnyak" />
+                <ComboBoxItem Content="Harry Potter és a bölcsek köve" />
+            </ComboBox>
+
+            <TextBlock Text="👥 Jegyek száma" Margin="0,16,0,0" />
+            <TextBox x:Name="ticketCount" />
+
+            <TextBlock Text="🎫 Jegytípus" Margin="0,16,0,0" />
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <StackPanel Grid.Column="0">
+                    <RadioButton x:Name="ticketNormal" Content="Normál Jegy" GroupName="ticket" IsChecked="True" Margin="0,0,0,-6" />
+
+                    <TextBlock Text="🏷️  2500 Ft" />
+                    <TextBlock Text="✅  Bárki" />
+                </StackPanel>
+
+                <StackPanel Grid.Column="1">
+                    <RadioButton x:Name="ticketStudent" Content="Diák Jegy" GroupName="ticket" Margin="0,0,0,-6" />
+                    
+                    <TextBlock Text="🏷️  1900 Ft" />
+                    <TextBlock Text="✅  Diákok" />
+                </StackPanel>
+
+                <StackPanel Grid.Column="3">
+                    <RadioButton x:Name="ticketVIP" Content="VIP Jegy" GroupName="ticket" Margin="0,0,0,-6" />
+                    
+                    <TextBlock Text="🏷️  4500 Ft" />
+                    <TextBlock Text="✅  Bárki" />
+                    <TextBlock Text="➕  VIP Ülőhely" />
+                    <TextBlock Text="➕  Ételbár" />
+                </StackPanel>
+            </Grid>
+
+            <TextBlock Text="➕ Extra szolgáltatások" Margin="0,16,0,0" />
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <StackPanel Grid.Column="0">
+                    <CheckBox x:Name="extraPopcorn" Content="Popcorn" Margin="0,0,0,-6" />
+
+                    <TextBlock Text="🏷️  1200 Ft" Margin="2,0,0,0" />
+                </StackPanel>
+
+                <StackPanel Grid.Column="1">
+                    <CheckBox x:Name="extraDrink" Content="Üdítő" Margin="0,0,0,-6" />
+
+                    <TextBlock Text="🏷️  800 Ft" Margin="2,0,0,0" />
+                </StackPanel>
+
+                <StackPanel Grid.Column="3">
+                    <CheckBox x:Name="extra3D" Content="3D Szemüveg" Margin="0,0,0,-6" />
+
+                    <TextBlock Text="🏷️  500 Ft" Margin="2,0,0,0" />
+                </StackPanel>
+            </Grid>
+
+            <CheckBox x:Name="acceptConditions" Content="Elfogadom a vásárlási feltételeket." Margin="0,32,0,0" />
+
+            <Button Content="Fogadás" Style="{DynamicResource AccentButtonStyle}" HorizontalAlignment="Stretch" Click="ReserveClick" />
+        </StackPanel>
+    </Grid>
+</Window>
